@@ -41,22 +41,21 @@ public class OctaneTestResultUploader {
 
     // 🧾 Step 2: Build the XML payload
     private static String buildTestResultXML() {
-        return "<test_result>
-                 <build>
-                   <build_name>Build_2025_07_04</build_name>
-                 </build>
-                 <test_runs>
-                   <test_run>
-                     <module_name>com.mayank.tests</module_name>
-                     <package_name>LoginTests</package_name>
-                     <class_name>LoginTest</class_name>
-                     <test_name>ValidLoginScenario</test_name>
-                     <status>Passed</status>
-                     <duration>4</duration>
-                   </test_run>
-                 </test_runs>
-               </test_result>
-               ";
+        return "<test_result>"+
+                 "<build>"+
+                "<build_name>Build_2025_07_04</build_name>"+
+                "</build>"+
+                "<test_runs>"+
+                "<test_run>"+
+                "<module_name>com.mayank.tests</module_name>"+
+                "<package_name>LoginTests</package_name>"+
+                "<class_name>LoginTest</class_name>"+
+                "<test_name>ValidLoginScenario</test_name>"+
+                "<status>Passed</status>"+
+                "<duration>4</duration>"+
+                "</test_run>"+
+                "</test_runs>"+
+                "</test_result>";
     }
 
     // 📤 Step 3: Submit the test result

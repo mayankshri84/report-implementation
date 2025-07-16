@@ -1,22 +1,16 @@
-package com.example.stepdefinitions;
+package org.sarb.stepdefinitions;
 
-import com.example.utils.CommonUtils;
+import io.cucumber.java.After;
+import org.openqa.selenium.support.PageFactory;
+import org.sarb.pages.HomePage;
+import org.sarb.utils.CommonUtils;
 import io.cucumber.java.en.Given;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import net.serenitybdd.annotations.DefaultUrl;
 import net.serenitybdd.annotations.Managed;
-import net.serenitybdd.annotations.Step;
 import net.serenitybdd.annotations.Steps;
-import net.serenitybdd.core.Serenity;
-import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import net.serenitybdd.screenplay.Actor;
 import java.util.concurrent.TimeUnit;
-
-import static net.serenitybdd.core.Serenity.getDriver;
 
 
 public class StepDef  {
@@ -30,11 +24,16 @@ public class StepDef  {
 
     Actor actor = new Actor("Mayank");
 
+    @After
+    public void tearDown(){
+        System.out.println();
+    }
 
     @Given("user is opening {string} browser")
     public void user_is_opening_browser(String string) {
         basePage.typeText(actor);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 
     }
 
@@ -47,10 +46,13 @@ public class StepDef  {
 
     @Given("type {string} in {string} field")
     public void type_in_field(String text, String field) {
-        CommonUtils commonUtils = new CommonUtils();
+        /*CommonUtils commonUtils = new CommonUtils();
         By by = commonUtils.getBy(commonUtils.getObjectProperty(field));
         basePage.typeText(actor);
-        driver.findElement(by).sendKeys(text);
+        driver.findElement(by).sendKeys(text);*/
+        basePage.openingTheBrowser(actor);
+        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+        homePage.userName.sendKeys(text);
 
     }
 

@@ -101,7 +101,7 @@
               <goal>aggregate</goal>
             </goals>
             <configuration>
-
+              <reports>single-page-html,navigator</reports>
               <generateFullReport>true</generateFullReport>
             </configuration>
 

@@ -1,4 +1,4 @@
-package com.example.utils;
+package org.sarb.utils;
 
 import org.openqa.selenium.By;
 
